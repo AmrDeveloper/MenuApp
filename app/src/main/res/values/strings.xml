@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MenuApp</string>
+
+    <string name="welcome_message">Welcome to our restaurant</string>
+</resources>
