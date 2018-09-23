@@ -2,4 +2,12 @@
     <string name="app_name">MenuApp</string>
 
     <string name="welcome_message">Welcome to our restaurant</string>
+
+    <string name="menu">Menu</string>
+    <string name="feedback">Feedback</string>
+    <string name="language">Language</string>
+
+    <!--Languages-->
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
 </resources>
