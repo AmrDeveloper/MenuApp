@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/menuItemImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_2" />
+
+    <TextView
+        android:id="@+id/menuItemTitle"
+        android:layout_below="@+id/menuItemImage"
+        android:layout_width="wrap_content"
+        android:text="@string/menu_item_title"
+        android:padding="5dp"
+        android:lines="1"
+        android:textColor="@color/red"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/menuItemPrice"
+        android:layout_below="@+id/menuItemImage"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:lines="1"
+        android:text="@string/menu_item_price"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_below="@+id/menuItemTitle"
+        android:layout_width="wrap_content"
+        android:text="@string/menu_item_description"
+        android:lines="2"
+        android:padding="5dp"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

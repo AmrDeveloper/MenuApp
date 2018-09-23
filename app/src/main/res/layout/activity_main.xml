@@ -41,6 +41,7 @@
                 android:background="@null"
                 android:contentDescription="@string/feedback"
                 android:padding="5dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/feedback" />
 
 
@@ -51,6 +52,7 @@
                 android:background="@null"
                 android:contentDescription="@string/language"
                 android:padding="5dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/language_icon" />
 
 
@@ -61,6 +63,7 @@
                 android:background="@null"
                 android:contentDescription="@string/menu"
                 android:padding="5dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/restaurant_menu" />
         </LinearLayout>
 
