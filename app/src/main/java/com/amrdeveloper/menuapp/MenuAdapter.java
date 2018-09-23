@@ -1,14 +1,17 @@
 package com.amrdeveloper.menuapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class MenuAdapter extends ArrayAdapter<Food> {
         }
 
         //Get Current food from Menu List
-        Food currentFood = getItem(position);
+        final Food currentFood = getItem(position);
 
         //Initialize Views
         TextView foodTitle = view.findViewById(R.id.menuItemTitle);
@@ -48,6 +51,15 @@ public class MenuAdapter extends ArrayAdapter<Food> {
         foodPrice.setText(currentFood.getPrice());
         foodDescription.setText(currentFood.getDescription());
         foodImage.setImageResource(currentFood.getImageResouceID());
+
+        //When user click on Image, The Image will be zoomed
+        foodImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Make zoom when user click on ImageView Item
+                ZoomAction.startImageZoom(getContext(),currentFood.getImageResouceID());
+            }
+        });
 
         //Return Layout
         return view;
