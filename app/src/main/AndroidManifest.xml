@@ -20,7 +20,6 @@
         </activity>
 
         <!--Intent Action when user unlock Tablet-->
-
         <service
             android:name=".ScreenListenerService"
             android:enabled="true"
