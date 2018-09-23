@@ -15,16 +15,18 @@
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--Intent Action when user unlock Tablet-->
+        <!-- Intent Action when user unlock Tablet -->
         <service
             android:name=".ScreenListenerService"
             android:enabled="true"
-            android:exported="false">
-        </service>
+            android:exported="false"></service>
+
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>
