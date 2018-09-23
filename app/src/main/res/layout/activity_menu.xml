@@ -32,12 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:weightSum="3"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:layout_weight="1"
                 android:id="@+id/feedBackAction"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/feedback"
@@ -45,29 +46,27 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/feedback" />
 
-
             <ImageButton
                 android:layout_weight="1"
                 android:id="@+id/langAction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:background="@null"
                 android:contentDescription="@string/language"
                 android:padding="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/language_icon" />
 
-
             <ImageButton
                 android:layout_weight="1"
                 android:id="@+id/menuAction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/menu"
                 android:padding="5dp"
-                android:src="@drawable/restaurant_menu" />
+                android:src="@drawable/restaurant_active" />
         </LinearLayout>
 
     </LinearLayout>
