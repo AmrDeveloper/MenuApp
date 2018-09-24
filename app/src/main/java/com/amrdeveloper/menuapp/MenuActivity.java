@@ -1,7 +1,9 @@
 package com.amrdeveloper.menuapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
 
@@ -30,5 +32,16 @@ public class MenuActivity extends AppCompatActivity {
 
         MenuAdapter adapter = new MenuAdapter(this,menu);
         foodGridView.setAdapter(adapter);
+    }
+
+
+    public void backToMainActivity(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFeedBackActivity(View view){
+        Intent intent = new Intent(this,FeedbackActivity.class);
+        startActivity(intent);
     }
 }

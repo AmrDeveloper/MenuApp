@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/feedback"
-                android:onClick="feedBackLauncher"
+                android:onClick="goToFeedBackActivity"
                 android:padding="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/feedback" />

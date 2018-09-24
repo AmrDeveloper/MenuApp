@@ -24,9 +24,14 @@
         <service
             android:name=".ScreenListenerService"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
 
-        <activity android:name=".MenuActivity" android:screenOrientation="landscape"/>
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="landscape"/>
     </application>
-
 </manifest>

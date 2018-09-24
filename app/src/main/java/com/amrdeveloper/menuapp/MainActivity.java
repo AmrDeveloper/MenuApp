@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * If Languages Text is Hidden show it
      */
-    private void languageVisibilityControl(){
+    private void languageVisibilityControl() {
         if (isHidden) {
             arabLangTxt.setVisibility(View.VISIBLE);
             engLangTxt.setVisibility(View.VISIBLE);
@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void feedBackLauncher(View view) {
-        Toast.makeText(this, "FeedBack Action", Toast.LENGTH_SHORT).show();
+    public void goToFeedBackActivity(View view) {
+        Intent intent = new Intent(this, FeedbackActivity.class);
+        startActivity(intent);
     }
 }
