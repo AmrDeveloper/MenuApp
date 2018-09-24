@@ -2,16 +2,20 @@ package com.amrdeveloper.menuapp;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView arabLangTxt;
     private TextView engLangTxt;
+    Configuration mConfiguration;
 
     private boolean isHidden = true;
 
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         startScreenListenerService();
         initializeView();
     }
@@ -43,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeLanguageAction(View view) {
         languageVisibilityControl();
-
     }
 
     /**
@@ -61,8 +65,29 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void changeLanguageToArabic(View view) {
+        //Change Application Language to Arabic
+        mConfiguration = new Configuration(getResources().getConfiguration());
+        mConfiguration.locale = new Locale("ar");
+        getResources().updateConfiguration(mConfiguration,getResources().getDisplayMetrics());
+        reloadMain();
+    }
+
+    public void changeLanguageToEnglish(View view) {
+        //Change Application Language to English
+        mConfiguration = new Configuration(getResources().getConfiguration());
+        mConfiguration.locale = Locale.ENGLISH;
+        getResources().updateConfiguration(mConfiguration,getResources().getDisplayMetrics());
+        reloadMain();
+    }
+
     public void goToFeedBackActivity(View view) {
         Intent intent = new Intent(this, FeedbackActivity.class);
         startActivity(intent);
+    }
+
+    private void reloadMain(){
+        finish();
+        startActivity(getIntent());
     }
 }

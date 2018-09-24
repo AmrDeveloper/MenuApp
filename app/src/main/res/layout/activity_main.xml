@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_gravity="center"
             android:text="@string/welcome_message"
             android:textColor="@android:color/white" />
 
@@ -74,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/arabic"
+            android:onClick="changeLanguageToArabic"
             android:textColor="@android:color/white"
             android:visibility="invisible" />
 
@@ -83,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/english"
+            android:onClick="changeLanguageToEnglish"
             android:textColor="@android:color/white"
             android:visibility="invisible" />
     </LinearLayout>

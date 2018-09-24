@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قائمة الطعام</string>
+    <string name="welcome_message">مرحبا بك فى المطعم</string>
+    <string name="menu">القائمة</string>
+    <string name="language">اللغة</string>
+    <string name="background">الخلفية</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الإنجليزيه</string>
+    <string name="menu_item_description">سلمون مشوي و خيار و بذور السمسم وتريكي</string>
+    <string name="menu_item_title">سلمون مشوي</string>
+</resources>
