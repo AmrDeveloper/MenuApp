@@ -2,11 +2,13 @@ package com.amrdeveloper.menuapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 /**
@@ -24,15 +26,23 @@ public class ZoomAction {
         //Zoom Image Code
         //Get This Screen Height and width
         DisplayMetrics dispaly = new DisplayMetrics();
-        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dispaly);
+
+        //Get Metrics
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            ((Activity) context).getWindowManager().getDefaultDisplay().getRealMetrics(dispaly);
+        }else{
+            ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dispaly);
+        }
+
         //get height
         int height = dispaly.heightPixels;
         //get width
         int width = dispaly.widthPixels;
         //now make inflater
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //inflate layout take my layout id , id of layout that have imageview
+        //inflate layout take my layout id , id of layout that have ImageView
         View zoomLayout = inflater.inflate(R.layout.zoom_layout, (ViewGroup) ((Activity) context).findViewById(R.id.layout));
+
         //define ImageView from this view zoomLayout
         ImageView zoomedImage = zoomLayout.findViewById(R.id.zoomImageView);
         zoomedImage.setImageResource(imgResourceId);

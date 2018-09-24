@@ -40,10 +40,10 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/feedback"
+                android:onClick="feedBackLauncher"
                 android:padding="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/feedback" />
-
 
             <ImageButton
                 android:id="@+id/langAction"
@@ -51,10 +51,10 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/language"
+                android:onClick="changeLanguageAction"
                 android:padding="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/language_icon" />
-
 
             <ImageButton
                 android:id="@+id/menuAction"
@@ -62,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/menu"
+                android:onClick="menuActivityLauncher"
                 android:padding="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/restaurant_menu" />
@@ -73,7 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/arabic"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/engLangTxt"
@@ -81,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/english"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
     </LinearLayout>
 </ScrollView>

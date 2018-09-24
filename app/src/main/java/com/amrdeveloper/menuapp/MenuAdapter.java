@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -57,7 +56,7 @@ public class MenuAdapter extends ArrayAdapter<Food> {
             @Override
             public void onClick(View v) {
                 //Make zoom when user click on ImageView Item
-                ZoomAction.startImageZoom(getContext(),currentFood.getImageResouceID());
+                ZoomAction.startImageZoom(getContext(), currentFood.getImageResouceID());
             }
         });
 

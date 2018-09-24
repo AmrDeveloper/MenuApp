@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:orientation="vertical">
 
         <ImageView
@@ -22,24 +22,24 @@
             android:src="@drawable/app_icon" />
 
         <ExpandableListView
-            android:layout_weight="1"
             android:id="@+id/typesListView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <LinearLayout
-            android:layout_weight=".2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="3"
             android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
+            android:layout_weight=".15"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <ImageButton
-                android:layout_weight="1"
                 android:id="@+id/feedBackAction"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@null"
                 android:contentDescription="@string/feedback"
                 android:padding="5dp"
@@ -47,10 +47,10 @@
                 android:src="@drawable/feedback" />
 
             <ImageButton
-                android:layout_weight="1"
                 android:id="@+id/langAction"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@null"
                 android:contentDescription="@string/language"
                 android:padding="5dp"
@@ -58,14 +58,14 @@
                 android:src="@drawable/language_icon" />
 
             <ImageButton
-                android:layout_weight="1"
                 android:id="@+id/menuAction"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@null"
-                android:scaleType="fitXY"
                 android:contentDescription="@string/menu"
                 android:padding="5dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/restaurant_active" />
         </LinearLayout>
 
@@ -84,5 +84,12 @@
         android:id="@+id/foodGridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:horizontalSpacing="30dp"
+        android:background="@color/background"
+        android:numColumns="3"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:verticalScrollbarPosition="right"
+        android:verticalSpacing="30dp" />
 </LinearLayout>
