@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,8 @@ public class MenuActivity extends AppCompatActivity {
 
     private ExpandableListView typesListView;
     private GridView foodGridView;
+    private ImageView background;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,13 +1,12 @@
 package com.amrdeveloper.menuapp;
 
-
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -15,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView arabLangTxt;
     private TextView engLangTxt;
-    Configuration mConfiguration;
 
     private boolean isHidden = true;
 
@@ -41,15 +39,6 @@ public class MainActivity extends AppCompatActivity {
         engLangTxt = findViewById(R.id.engLangTxt);
     }
 
-    public void menuActivityLauncher(View view) {
-        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-        startActivity(intent);
-    }
-
-    public void changeLanguageAction(View view) {
-        languageVisibilityControl();
-    }
-
     /**
      * If Languages Text is Hidden show it
      */
@@ -65,29 +54,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void changeLanguageToArabic(View view) {
-        //Change Application Language to Arabic
-        mConfiguration = new Configuration(getResources().getConfiguration());
-        mConfiguration.locale = new Locale("ar");
+    private void changeRuntimeLanguage(Locale locale){
+        Configuration mConfiguration = new Configuration(getResources().getConfiguration());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            mConfiguration.setLocale(locale);
+        }else{
+            mConfiguration.locale = locale;
+        }
         getResources().updateConfiguration(mConfiguration,getResources().getDisplayMetrics());
-        reloadMain();
+        reloadMainActivity();
+    }
+
+    private void reloadMainActivity(){
+        finish();
+        startActivity(getIntent());
+    }
+
+    public void menuActivityLauncher(View view) {
+        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void changeLanguageAction(View view) {
+        languageVisibilityControl();
+    }
+
+    public void changeLanguageToArabic(View view) {
+        changeRuntimeLanguage(new Locale("ar"));
     }
 
     public void changeLanguageToEnglish(View view) {
-        //Change Application Language to English
-        mConfiguration = new Configuration(getResources().getConfiguration());
-        mConfiguration.locale = Locale.ENGLISH;
-        getResources().updateConfiguration(mConfiguration,getResources().getDisplayMetrics());
-        reloadMain();
+        changeRuntimeLanguage(Locale.ENGLISH);
     }
 
     public void goToFeedBackActivity(View view) {
         Intent intent = new Intent(this, FeedbackActivity.class);
         startActivity(intent);
-    }
-
-    private void reloadMain(){
-        finish();
-        startActivity(getIntent());
     }
 }

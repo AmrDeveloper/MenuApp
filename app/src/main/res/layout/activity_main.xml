@@ -75,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/arabic"
+            android:textSize="20sp"
             android:onClick="changeLanguageToArabic"
             android:textColor="@android:color/white"
             android:visibility="invisible" />
@@ -85,6 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/english"
+            android:textSize="20sp"
             android:onClick="changeLanguageToEnglish"
             android:textColor="@android:color/white"
             android:visibility="invisible" />
