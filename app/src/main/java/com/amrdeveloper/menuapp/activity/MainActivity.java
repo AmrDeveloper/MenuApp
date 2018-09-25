@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         startScreenListenerService();
-        initializeView();
-        setRedTextColor();
+        initializeViews();
+        changeTextViewState();
     }
 
     private void isFirstStart() {
@@ -56,18 +56,22 @@ public class MainActivity extends AppCompatActivity {
         startService(serviceIntent);
     }
 
-    private void initializeView() {
+    private void initializeViews() {
         arabLangTxt = findViewById(R.id.arabLangTxt);
         engLangTxt = findViewById(R.id.engLangTxt);
     }
 
-    private void setRedTextColor(){
+    private void changeTextViewState(){
         if(isEnglishLanguage){
             engLangTxt.setTextColor(getResources().getColor(R.color.red));
             arabLangTxt.setTextColor(Color.WHITE);
+            arabLangTxt.setClickable(true);
+            engLangTxt.setClickable(false);
         }else{
             arabLangTxt.setTextColor(getResources().getColor(R.color.red));
             engLangTxt.setTextColor(Color.WHITE);
+            arabLangTxt.setClickable(false);
+            engLangTxt.setClickable(true);
         }
     }
     /**
@@ -117,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         isFirstLaunch = false;
         isEnglishLanguage = false;
         reloadMainActivity();
-
     }
 
     public void changeLanguageToEnglish(View view) {
@@ -125,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
         isFirstLaunch = false;
         isEnglishLanguage = true;
         reloadMainActivity();
-
     }
 
     public void goToFeedBackActivity(View view) {
