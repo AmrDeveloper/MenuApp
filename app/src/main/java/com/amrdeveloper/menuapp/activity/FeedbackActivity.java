@@ -1,7 +1,9 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.amrdeveloper.menuapp.R;
 
 public class FeedbackActivity extends AppCompatActivity {
 

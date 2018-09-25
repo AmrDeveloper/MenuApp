@@ -11,7 +11,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,16 +22,16 @@
 
         <!-- Intent Action when user unlock Tablet -->
         <service
-            android:name=".ScreenListenerService"
+            android:name=".service.ScreenListenerService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name=".MenuActivity"
+            android:name=".activity.MenuActivity"
             android:screenOrientation="landscape" />
 
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".activity.FeedbackActivity"
             android:screenOrientation="landscape"/>
     </application>
 </manifest>

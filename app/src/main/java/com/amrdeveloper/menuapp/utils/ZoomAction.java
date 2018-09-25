@@ -1,4 +1,4 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.amrdeveloper.menuapp.R;
 
 /**
  * Created by AmrDeveloper on 9/23/2018.

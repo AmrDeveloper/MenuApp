@@ -1,7 +1,6 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import com.amrdeveloper.menuapp.R;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +23,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> menuListHeader;
     private HashMap<String, List<String>> menuListItem;
+
+    private ExpandableListAdapter adapter = this;
 
     public ExpandableListAdapter(Context context, List<String> menuListHeader, HashMap<String, List<String>> menuListItem) {
         this.context = context;
@@ -67,10 +70,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String headerTitle = (String) getGroup(groupPosition);
+
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.menu_groub_title, null);
         }
+
         final TextView menuFoodHeader = convertView.findViewById(R.id.menuFoodGroup);
         menuFoodHeader.setTypeface(null, Typeface.BOLD);
         menuFoodHeader.setText(headerTitle);
@@ -81,10 +86,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final String childText = (String) getChild(groupPosition, childPosition);
+
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.menu_group_item, null);
         }
+
         TextView txtListChild = convertView.findViewById(R.id.menuFoodTitle);
         txtListChild.setText(childText);
         return convertView;

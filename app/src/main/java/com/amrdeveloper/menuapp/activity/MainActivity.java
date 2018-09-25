@@ -1,4 +1,4 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.amrdeveloper.menuapp.R;
+import com.amrdeveloper.menuapp.service.ScreenListenerService;
 
 import java.util.Locale;
 

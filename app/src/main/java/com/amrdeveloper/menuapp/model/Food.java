@@ -1,4 +1,4 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.model;
 
 /**
  * Created by AmrDeveloper on 9/23/2018.

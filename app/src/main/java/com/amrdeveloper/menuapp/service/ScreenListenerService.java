@@ -1,4 +1,4 @@
-package com.amrdeveloper.menuapp;
+package com.amrdeveloper.menuapp.service;
 
 /**
  * Created by AmrDeveloper on 9/23/2018.
@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
+
+import com.amrdeveloper.menuapp.activity.MainActivity;
 
 /**
  * This is a service registers a broadcast receiver to listen for screen on/off events.
