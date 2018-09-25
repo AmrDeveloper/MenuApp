@@ -1,11 +1,13 @@
 package com.amrdeveloper.menuapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -69,9 +71,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.menu_groub_title, null);
         }
-        TextView lblListHeader = convertView.findViewById(R.id.menuFoodGroup);
-        lblListHeader.setTypeface(null, Typeface.BOLD);
-        lblListHeader.setText(headerTitle);
+        final TextView menuFoodHeader = convertView.findViewById(R.id.menuFoodGroup);
+        menuFoodHeader.setTypeface(null, Typeface.BOLD);
+        menuFoodHeader.setText(headerTitle);
+
         return convertView;
     }
 
@@ -90,5 +93,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    public View getGroupHeader(ExpandableListView listView, int groupPosition) {
+        long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
+        int flatPosition = listView.getFlatListPosition(packedPosition);
+        int first = listView.getFirstVisiblePosition();
+        return listView.getChildAt(flatPosition - first);
     }
 }

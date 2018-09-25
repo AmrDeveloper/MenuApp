@@ -5,12 +5,10 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,18 +17,20 @@ import java.util.List;
 public class MenuActivity extends AppCompatActivity {
 
     private GridView foodGridView;
-    private ImageView background;
+    private ImageView mBackgroundImg;
 
     private ExpandableListView menuExpListView;
     private ExpandableListAdapter mMenuListViewAdapter;
 
     private List<String> menuGroupHeadTitle;
-    private HashMap<String,List<String>> menuGroubListItem;
+    private HashMap<String, List<String>> menuGroubListItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        mBackgroundImg = findViewById(R.id.menuBackgroundImg);
 
         foodGridView = findViewById(R.id.foodGridView);
         List<Food> menu = new ArrayList<>();
@@ -52,23 +52,25 @@ public class MenuActivity extends AppCompatActivity {
 
         menuExpListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int i, long id) {
-                String groupItemName = parent.getItemAtPosition(i).toString();
-                TextView txt = (TextView) parent.getExpandableListAdapter().getGroupView(i,false,v,parent);
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                setMenuItemsMode();
 
+                TextView selectedGroupHeader =  mMenuListViewAdapter.getGroupHeader(menuExpListView,groupPosition).findViewById(R.id.menuFoodGroup);
+                selectedGroupHeader.setTextColor(getResources().getColor(R.color.red));
                 return false;
             }
         });
 
-        menuExpListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        menuExpListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int i, int il, long id) {
+            public void onGroupCollapse(int groupPosition) {
+                setBackgroundMode();
 
-                return false;
+                TextView selectedGroupHeader =  mMenuListViewAdapter.getGroupHeader(menuExpListView,groupPosition).findViewById(R.id.menuFoodGroup);
+                selectedGroupHeader.setTextColor(Color.WHITE);
             }
         });
     }
-
 
     private void initDummyData() {
         menuGroupHeadTitle = new ArrayList<>();
@@ -98,18 +100,28 @@ public class MenuActivity extends AppCompatActivity {
         maki.add("Hoso maki");
         maki.add("Futomaki");
 
-        for(int i = 0 ; i < menuGroupHeadTitle.size() ; i++){
-            menuGroubListItem.put(menuGroupHeadTitle.get(i),maki);
+        for (int i = 0; i < menuGroupHeadTitle.size(); i++) {
+            menuGroubListItem.put(menuGroupHeadTitle.get(i), maki);
         }
     }
 
-    public void backToMainActivity(View view){
-        Intent intent = new Intent(this,MainActivity.class);
+    public void backToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void goToFeedBackActivity(View view){
-        Intent intent = new Intent(this,FeedbackActivity.class);
+    public void goToFeedBackActivity(View view) {
+        Intent intent = new Intent(this, FeedbackActivity.class);
         startActivity(intent);
+    }
+
+    private void setBackgroundMode() {
+        mBackgroundImg.setVisibility(View.VISIBLE);
+        foodGridView.setVisibility(View.GONE);
+    }
+
+    private void setMenuItemsMode() {
+        mBackgroundImg.setVisibility(View.GONE);
+        foodGridView.setVisibility(View.VISIBLE);
     }
 }
