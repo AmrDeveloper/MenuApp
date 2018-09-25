@@ -22,11 +22,11 @@ import java.util.List;
 
 public class MenuAdapter extends ArrayAdapter<Food> {
 
-    private List<Food> menuList;
+    private List<Food> mMenuListItems;
 
     public MenuAdapter(@NonNull Context context, List<Food> menuList) {
         super(context, 0, menuList);
-        this.menuList = menuList;
+        mMenuListItems = menuList;
     }
 
     @NonNull
@@ -54,12 +54,9 @@ public class MenuAdapter extends ArrayAdapter<Food> {
         foodImage.setImageResource(currentFood.getImageResouceID());
 
         //When user click on Image, The Image will be zoomed
-        foodImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Make zoom when user click on ImageView Item
-                ZoomAction.startImageZoom(getContext(), currentFood.getImageResouceID());
-            }
+        foodImage.setOnClickListener(v -> {
+            //Make zoom when user click on ImageView Item
+            ZoomAction.startImageZoom(getContext(), currentFood.getImageResouceID());
         });
 
         //Return Layout
