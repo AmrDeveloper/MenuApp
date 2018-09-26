@@ -10,15 +10,17 @@ import android.widget.ImageView;
 
 import com.amrdeveloper.menuapp.R;
 import com.amrdeveloper.menuapp.adapter.ExpandableListAdapter;
+import com.amrdeveloper.menuapp.adapter.MainMenuAdapter;
 import com.amrdeveloper.menuapp.adapter.MenuAdapter;
 import com.amrdeveloper.menuapp.data.DummyData;
+import com.amrdeveloper.menuapp.model.Food;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private GridView foodGridView;
+    private ExpandableListView foodExpList;
     private ImageView mBackgroundImg;
     private ExpandableListView menuExpListView;
 
@@ -33,9 +35,14 @@ public class MenuActivity extends AppCompatActivity {
         List<String> menuGroupHeadTitle = mDummyData.getMenuGroupHeaders();
         HashMap<String, List<String>> menuGroupListItem = mDummyData.getMenuGroupListItems(menuGroupHeadTitle);
 
-        final MenuAdapter adapter = new MenuAdapter(this, mDummyData.foodDummyList());
-        foodGridView = findViewById(R.id.foodGridView);
-        foodGridView.setAdapter(adapter);
+        foodExpList = findViewById(R.id.foodExpList);
+
+        List<String> foodListTitles = mDummyData.getMenuType();
+        List<List<Food>> foodItemsList = mDummyData.foodDummyList();
+        HashMap<String,List<List<Food>>> foodMenuItemsMap = mDummyData.getMenuListFood(foodItemsList);
+
+        MainMenuAdapter adapter = new MainMenuAdapter(this,foodListTitles,foodMenuItemsMap);
+        foodExpList.setAdapter(adapter);
 
         mMenuListViewAdapter = new ExpandableListAdapter(this, menuGroupHeadTitle, menuGroupListItem);
 
@@ -73,7 +80,7 @@ public class MenuActivity extends AppCompatActivity {
      */
     private void setBackgroundMode() {
         mBackgroundImg.setVisibility(View.VISIBLE);
-        foodGridView.setVisibility(View.GONE);
+        foodExpList.setVisibility(View.GONE);
     }
 
     /**
@@ -81,7 +88,7 @@ public class MenuActivity extends AppCompatActivity {
      */
     private void setMenuItemsMode() {
         mBackgroundImg.setVisibility(View.GONE);
-        foodGridView.setVisibility(View.VISIBLE);
+        foodExpList.setVisibility(View.VISIBLE);
     }
 
     /**

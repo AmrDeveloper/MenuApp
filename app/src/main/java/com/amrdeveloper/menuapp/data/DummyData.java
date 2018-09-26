@@ -21,7 +21,7 @@ public final class DummyData {
         this.context = context;
     }
 
-    public List<Food> foodDummyList() {
+    public List<List<Food>> foodDummyList() {
         final String dummyFoodTitle = context.getResources().getString(R.string.menu_item_title);
         final String dummyFoodPrice = context.getResources().getString(R.string.menu_item_price);
         final String dummyFoodDescription = context.getResources().getString(R.string.menu_item_description);
@@ -35,7 +35,32 @@ public final class DummyData {
         foodMenuList.add(new Food(dummyFoodTitle, dummyFoodPrice, dummyFoodDescription, R.drawable.image_7));
         foodMenuList.add(new Food(dummyFoodTitle, dummyFoodPrice, dummyFoodDescription, R.drawable.image_8));
 
-        return foodMenuList;
+        List<List<Food>> fullList = new ArrayList<>();
+        fullList.add(foodMenuList);
+
+        return fullList;
+    }
+
+    public List<String> getMenuType() {
+        final List<String> types = new ArrayList<>();
+        types.add("Ura maki");
+        types.add("Crispy ura maki");
+        types.add("Ura maki special");
+        return types;
+    }
+
+    public HashMap<String, List<List<Food>>> getMenuListFood(List<List<Food>> menuChildItems) {
+        HashMap<String, List<List<Food>>> menuGroupListItems = new HashMap<>();
+
+        List<String> types = getMenuType();
+
+        for (int i = 0; i < types.size(); i++) {
+
+            for (int j = 0; j < menuChildItems.size(); j++) {
+                menuGroupListItems.put(types.get(i), menuChildItems);
+            }
+        }
+        return menuGroupListItems;
     }
 
     public List<String> getMenuGroupHeaders() {

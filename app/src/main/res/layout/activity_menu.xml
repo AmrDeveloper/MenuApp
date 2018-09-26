@@ -84,16 +84,11 @@
         android:src="@drawable/main_image"
         android:visibility="gone" />
 
-    <GridView
-        android:id="@+id/foodGridView"
+    <ExpandableListView
+        android:id="@+id/foodExpList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@color/background"
-        android:horizontalSpacing="@dimen/dimen20sp"
-        android:numColumns="3"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbars="vertical"
-        android:verticalScrollbarPosition="right"
-        android:verticalSpacing="@dimen/dimen20sp" />
+         />
 </LinearLayout>
