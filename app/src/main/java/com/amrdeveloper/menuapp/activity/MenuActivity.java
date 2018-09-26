@@ -1,14 +1,12 @@
 package com.amrdeveloper.menuapp.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.amrdeveloper.menuapp.R;
 import com.amrdeveloper.menuapp.adapter.ExpandableListAdapter;
@@ -44,6 +42,7 @@ public class MenuActivity extends AppCompatActivity {
         menuExpListView = findViewById(R.id.typesListView);
         menuExpListView.setAdapter(mMenuListViewAdapter);
         menuExpListView.setOnGroupClickListener(mOnGroupClickListener);
+        menuExpListView.setOnGroupExpandListener(mOnGroupExpandListener);
         menuExpListView.setOnGroupCollapseListener(mOnGroupCollapseListener);
 
         mBackgroundImg = findViewById(R.id.menuBackgroundImg);
@@ -70,16 +69,20 @@ public class MenuActivity extends AppCompatActivity {
         foodGridView.setVisibility(View.VISIBLE);
     }
 
-    final ExpandableListView.OnGroupClickListener mOnGroupClickListener = (parent, view, groupPosition, id) -> {
-        TextView selectedGroupHeader = mMenuListViewAdapter.getGroupHeader(menuExpListView, groupPosition).findViewById(R.id.menuFoodGroup);
-        selectedGroupHeader.setTextColor(getResources().getColor(R.color.red));
+    private final ExpandableListView.OnGroupClickListener mOnGroupClickListener = (parent, view, groupPosition, id) -> {
         setMenuItemsMode();
         return false;
     };
 
-    final ExpandableListView.OnGroupCollapseListener mOnGroupCollapseListener = (groupPosition) -> {
+    private final ExpandableListView.OnGroupCollapseListener mOnGroupCollapseListener = (groupPosition) -> {
         setBackgroundMode();
-        TextView selectedGroupHeader = mMenuListViewAdapter.getGroupHeader(menuExpListView, groupPosition).findViewById(R.id.menuFoodGroup);
-        selectedGroupHeader.setTextColor(Color.WHITE);
+    };
+
+    private final ExpandableListView.OnGroupExpandListener mOnGroupExpandListener = (groupPosition) -> {
+        for (int index = 0; index < mMenuListViewAdapter.getGroupCount(); index++)
+            if (index != groupPosition)
+                if (menuExpListView.isGroupExpanded(index))
+                    menuExpListView.collapseGroup(index);
+        setMenuItemsMode();
     };
 }

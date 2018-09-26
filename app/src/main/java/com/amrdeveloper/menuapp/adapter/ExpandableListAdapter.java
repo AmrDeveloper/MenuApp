@@ -1,6 +1,7 @@
 package com.amrdeveloper.menuapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +24,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> menuListHeader;
     private HashMap<String, List<String>> menuListItem;
-
-    private ExpandableListAdapter adapter = this;
 
     public ExpandableListAdapter(Context context, List<String> menuListHeader, HashMap<String, List<String>> menuListItem) {
         this.context = context;
@@ -69,7 +68,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
+        String headerTitle = getGroup(groupPosition).toString();
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -79,6 +78,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         final TextView menuFoodHeader = convertView.findViewById(R.id.menuFoodGroup);
         menuFoodHeader.setTypeface(null, Typeface.BOLD);
         menuFoodHeader.setText(headerTitle);
+
+        if (isExpanded) {
+            int redColorID = context.getResources().getColor(R.color.red);
+            menuFoodHeader.setTextColor(redColorID);
+        } else {
+            menuFoodHeader.setTextColor(Color.WHITE);
+        }
 
         return convertView;
     }
@@ -100,12 +106,5 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
-    }
-
-    public View getGroupHeader(ExpandableListView listView, int groupPosition) {
-        long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
-        int flatPosition = listView.getFlatListPosition(packedPosition);
-        int first = listView.getFirstVisiblePosition();
-        return listView.getChildAt(flatPosition - first);
     }
 }

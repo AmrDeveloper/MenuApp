@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view : Menu ImageButton
      */
     public void menuActivityLauncher(View view) {
-        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
