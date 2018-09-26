@@ -49,35 +49,59 @@ public class MenuActivity extends AppCompatActivity {
         setBackgroundMode();
     }
 
+    /**
+     * @param view : When user click on Language ImageButton
+     *               Start Mein Activity to choice language again
+     */
     public void backToMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     *
+     * @param view : When user click on Feedback image button
+     *               Go To FeedBack Activity
+     */
     public void goToFeedBackActivity(View view) {
         Intent intent = new Intent(this, FeedbackActivity.class);
         startActivity(intent);
     }
 
+    /**
+     *
+     */
     private void setBackgroundMode() {
         mBackgroundImg.setVisibility(View.VISIBLE);
         foodGridView.setVisibility(View.GONE);
     }
 
+    /**
+     *
+     */
     private void setMenuItemsMode() {
         mBackgroundImg.setVisibility(View.GONE);
         foodGridView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     *
+     */
     private final ExpandableListView.OnGroupClickListener mOnGroupClickListener = (parent, view, groupPosition, id) -> {
         setMenuItemsMode();
         return false;
     };
 
+    /**
+     *
+     */
     private final ExpandableListView.OnGroupCollapseListener mOnGroupCollapseListener = (groupPosition) -> {
         setBackgroundMode();
     };
 
+    /**
+     *
+     */
     private final ExpandableListView.OnGroupExpandListener mOnGroupExpandListener = (groupPosition) -> {
         for (int index = 0; index < mMenuListViewAdapter.getGroupCount(); index++)
             if (index != groupPosition)

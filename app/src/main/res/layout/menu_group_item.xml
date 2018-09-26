@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:padding="8dp"
+    android:padding="@dimen/dimen8dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/menuFoodTitle"
-        android:textSize="16sp"
+        android:textSize="@dimen/dimen16sp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_marginLeft="5dp"
+        android:paddingTop="@dimen/dimen8dp"
+        android:paddingBottom="@dimen/dimen8dp"
+        android:layout_marginLeft="@dimen/dimen8dp"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

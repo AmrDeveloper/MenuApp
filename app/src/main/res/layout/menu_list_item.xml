@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="250dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background"
     android:orientation="vertical">
@@ -17,7 +17,7 @@
         android:layout_below="@+id/menuItemImage"
         android:layout_width="wrap_content"
         android:text="@string/menu_item_title"
-        android:padding="5dp"
+        android:padding="@dimen/dimen5dp"
         android:lines="1"
         android:textColor="@color/red"
         android:layout_height="wrap_content" />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:padding="5dp"
+        android:padding="@dimen/dimen5dp"
         android:lines="1"
         android:text="@string/menu_item_price"
         android:textColor="@android:color/white"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:text="@string/menu_item_description"
         android:lines="2"
-        android:padding="5dp"
+        android:padding="@dimen/dimen5dp"
         android:textColor="@android:color/white"
         android:layout_height="wrap_content" />
 </RelativeLayout>

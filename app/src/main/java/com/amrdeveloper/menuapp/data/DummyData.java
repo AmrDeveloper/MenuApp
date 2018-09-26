@@ -63,11 +63,11 @@ public final class DummyData {
 
         final List<String> maki = new ArrayList<>();
         maki.add("Ura maki");
-        //maki.add("Crispy ura maki");
-        //maki.add("Ura maki special");
-        //maki.add("Gunkan maki");
-        //maki.add("Hoso maki");
-        //maki.add("Futomaki");
+        maki.add("Crispy ura maki");
+        maki.add("Ura maki special");
+        maki.add("Gunkan maki");
+        maki.add("Hoso maki");
+        maki.add("Futomaki");
 
         for (int i = 0; i < menuChildItems.size(); i++) {
             menuGroupListItems.put(menuChildItems.get(i), maki);

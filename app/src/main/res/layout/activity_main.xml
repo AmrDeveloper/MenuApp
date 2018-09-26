@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dimen5dp"
             android:layout_gravity="center"
             android:text="@string/welcome_message"
             android:textColor="@android:color/white" />
@@ -42,7 +42,7 @@
                 android:background="@null"
                 android:contentDescription="@string/feedback"
                 android:onClick="goToFeedBackActivity"
-                android:padding="5dp"
+                android:padding="@dimen/dimen5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/feedback" />
 
@@ -53,7 +53,7 @@
                 android:background="@null"
                 android:contentDescription="@string/language"
                 android:onClick="changeLanguageAction"
-                android:padding="5dp"
+                android:padding="@dimen/dimen5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/language_icon" />
 
@@ -64,7 +64,7 @@
                 android:background="@null"
                 android:contentDescription="@string/menu"
                 android:onClick="menuActivityLauncher"
-                android:padding="5dp"
+                android:padding="@dimen/dimen5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/restaurant_menu" />
         </LinearLayout>
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/arabic"
-            android:textSize="20sp"
+            android:textSize="@dimen/dimen20sp"
             android:onClick="changeLanguageToArabic"
             android:textColor="@android:color/white"
             android:visibility="invisible" />
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/english"
-            android:textSize="20sp"
+            android:textSize="@dimen/dimen20sp"
             android:onClick="changeLanguageToEnglish"
             android:textColor="@android:color/white"
             android:visibility="invisible" />

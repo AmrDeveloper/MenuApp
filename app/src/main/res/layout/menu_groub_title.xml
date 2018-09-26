@@ -9,10 +9,10 @@
     android:id="@+id/menuFoodGroup"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:padding="@dimen/dimen8dp"
     android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
     android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
     android:textColor="@android:color/white"
-    android:textSize="16sp" />
+    android:textSize="@dimen/dimen16sp" />
 
 </LinearLayout>
