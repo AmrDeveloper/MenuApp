@@ -1,7 +1,7 @@
 # MenuApp
 Menu Simple Applicaion for Restaurant
 
-## Tasks
+## Tasks Completed
 :white_check_mark: Start working on its own the minute the Tablet is unlocked 
 
 :white_check_mark: Compatible with Tablets 
