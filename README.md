@@ -1,7 +1,10 @@
 # MenuApp
 Menu Simple Applicaion for Restaurant
 
-## Tasks Completed
+## ScreenShot 
+<img src="https://i.imgur.com/4Eqqxnj.gif" width="500">
+
+## Completed
 :white_check_mark: Start working on its own the minute the Tablet is unlocked 
 
 :white_check_mark: Compatible with Tablets 
@@ -14,6 +17,3 @@ Menu Simple Applicaion for Restaurant
 
 :white_check_mark: When clicking on any of the items, its image will be zoomed on 
 
-## ScreenShot 
-
-<img src="https://i.imgur.com/4Eqqxnj.gif" width="500">
